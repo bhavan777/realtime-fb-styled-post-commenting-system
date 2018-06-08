@@ -4,10 +4,11 @@ const http = require('http');
 const socketIO = require('socket.io');
 var path = require('path');
 // our localhost port
-const port = 4000;
+const port = 7777;
 
 const app = express();
 
+app.use(express.static('public'));
 // our server instance
 const server = http.createServer(app);
 
@@ -17,7 +18,9 @@ const io = socketIO(server);
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', socket => {
   console.log('new connecion');
-  io.sockets.emit('welcome', 'yo client welcome');
+  setTimeout(() => {
+    io.sockets.emit('init', 'hello');
+  }, 2000);
 
   socket.on('post', (post) => {
     console.log('new post added', post);
