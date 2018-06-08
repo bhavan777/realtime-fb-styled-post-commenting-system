@@ -19,11 +19,13 @@ const io = socketIO(server);
 io.on('connection', socket => {
   console.log('new connecion');
   setTimeout(() => {
-    io.sockets.emit('init', 'hello');
+    io.sockets.emit('init', 'your timeline seems empty, try posting things(only text supported right at this point)');
   }, 2000);
 
-  socket.on('post', (post) => {
-    console.log('new post added', post);
+  socket.on('new post', (post) => {
+    console.log('new post added');
+    var postid = 'post' + Math.random().toString();
+    io.sockets.emit('renderposts', {id: postid ,post:post});
   });
   socket.on('comment', (data) => {
     console.log('new comment added', data.comment, data.postId);
