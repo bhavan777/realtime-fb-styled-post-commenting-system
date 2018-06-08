@@ -1,9 +1,12 @@
 
 
+New posts are emitted to the server from client then emitted to all clients from server to update the ui in all clients. similar way, comments too can work. No db is used here, just a fun experiment.Mongodb can be used to store the data.
 
-1.NPM Install<br/>
+to run in local:
 
-2.NPM run dev <br/>
+1. NPM Install<br/>
+
+2. NPM run dev <br/>
 
 3. goto http://localhost:7777
 
@@ -15,17 +18,16 @@ Express server,
 
 Socket.io for socket communication, 
 
-one html file,one css file
+one html file,one css file node-sass for scss to css, 
+
+uglifyjs for minimising the js, nodemon for watch. No ES-6 used.
+
+jQuery used for dom interactions.
+
+minimal Handlebars for templating.
+
+Webpack could have been used and React could be used to build this. This vanilla experiment took lesser time.
+
+moment.js used for displaying the age of posts/comments
+
 ##
-all the files in the src folder are hand written.
-
-No Framework has been used for form elements, grid system, mobile/tab/screen media styling though it would have been 
-faster to develop with them, i choose to experiment.
-
-optimal for desktop and mobile screens as of now, though tab view is not at it's best.
-
-all the colors are customizable from styles/config.js from
-
-all the content on the page is static and can be customized from the files in data directory.
-
-clone the repo, cd into the directory, yarn install, yarn start to see the code on 8000 port on localhost.
