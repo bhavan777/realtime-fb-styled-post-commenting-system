@@ -1,0 +1,133 @@
+body {
+  background-color: #e9ebee;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid lightskyblue;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: loading 0.8s linear infinite;
+}
+
+
+.postform {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f6f6f6;
+
+  &__input {
+    background-color: #FFF;
+    width: 90%;
+    float:left;
+    border:thin solid #dadada;
+    min-height: 60px;
+    outline: 0;
+    padding: 10px;
+  }
+  &__btn {
+    width: 10%;
+    float: left;
+    padding: 0;
+    background:lightskyblue;
+    line-height: 30px;
+    border:0;
+    margin-top: 30px;
+  }
+
+}
+
+.post {
+  background-color: #fff;
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+  min-height: 70px;
+  margin-top: 10px;
+  border-radius: 3px 3px 0 0;
+  padding: 5px 15px 5px 70px;
+  position: relative;
+  &-wrap {
+    margin-bottom: 10px;
+  }
+  .time-label {
+    font-size: 12px;
+    color: #999;
+  }
+  .dp {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-image: url("https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png");
+    background-color: #ccc
+  }
+  .uname {
+    font-weight: 700;
+    line-height: 2;
+    font-size: 16px;
+    color: lightblue;
+  }
+  .body {
+    color: #666;
+    margin-top: 10px;
+    font-size: 16px;
+    word-break: break-all;
+    font-weight: 300;
+  }
+}
+.commentform {
+  width: 100%;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
+  background-color: #fff;
+  border-top: thin solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 15px 15px 15px 45px;
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  &__input {
+    background-color: #FFF;
+    width: 100%;
+    float: left;
+    border: thin solid #dadada;
+    min-height: 30px;
+    outline: 0;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .dp {
+    position: absolute;
+    left: 7px;
+    top: 17px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-image: url("https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png");
+    background-color: #ccc
+  }
+
+}
