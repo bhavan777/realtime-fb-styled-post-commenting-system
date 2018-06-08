@@ -15,17 +15,21 @@ const server = http.createServer(app);
 // This creates our socket using the instance of the server
 const io = socketIO(server);
 
+const serverData = [];
+
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', socket => {
   console.log('new connecion');
   setTimeout(() => {
-    io.sockets.emit('init', 'your timeline seems empty, try posting things(only text supported right at this point)');
+    io.sockets.emit('init', serverData);
   }, 2000);
 
-  socket.on('new post', (post) => {
+  socket.on('new post', (data) => {
     console.log('new post added');
-    var postid = 'post' + Math.random().toString();
-    io.sockets.emit('renderposts', {id: postid ,post:post});
+    var postid = 'post-' + Date.now().toString();
+    var dataToSend = {id: postid, post: data.content, ts: data.ts};
+    serverData.push(dataToSend);
+    io.sockets.emit('renderposts', dataToSend);
   });
   socket.on('comment', (data) => {
     console.log('new comment added', data.comment, data.postId);

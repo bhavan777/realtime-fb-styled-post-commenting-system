@@ -8,10 +8,9 @@
     "scss": "node-sass -o public/css src/scss",
     "autoprefixer": "postcss -u autoprefixer -r public/css/*",
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
-    "lint": "eslint src/js",
-    "uglify": "mkdir -p public/js && uglifyjs src/main.js -o public/js/app.js",
+    "uglify": "mkdir -p public/js && uglifyjs src/js/main.js -m -o public/js/app.js",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run lint & npm run uglify",
+    "build:js": "npm run uglify",
     "build": "npm run build:css && npm run build:js"
   },
   "author": "Bhavan Kuchibhotla",
@@ -27,6 +26,7 @@
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.17.5"
